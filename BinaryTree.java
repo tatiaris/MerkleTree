@@ -22,7 +22,7 @@ public class BinaryTree
     // Instantiate the merkle tree
     public BinaryTree ()
     {
-
+        
     }
 
     // insert
@@ -44,7 +44,7 @@ public class BinaryTree
     // Given the key to a node, return the node
     Node find(String key)
     {
-        Node x = new Node();
+        Node x = new Node("", 0);
         return x;
     }
 
@@ -55,3 +55,27 @@ public class BinaryTree
         return -990;
     }
 }
+
+// Master Copy
+// rootHash
+// ABSunheeCHash DEFRishabhHash
+// ABHash SunheeCHash DEHash FRishabhHash
+// A B C D E F: Rishabh:rtpw Sunhee:skpw
+
+// Temp Copy
+// rootHash
+// ABSunheeCHash DEFRishabhHash
+// ABHash SunheeCHash DEHash FRishabhHash
+// A B Sunhee C D E  F:input Rishabh:input
+
+// rishabh
+// password123@#$23435
+
+// 0: Node(key, val)
+// 1: Node(key, val)
+// ...
+// 8: Node(A, APW)
+// 9: Node(B, BPW)
+// ...
+// 14: Node(R, RPW)
+// 15: Node(S, SPW)

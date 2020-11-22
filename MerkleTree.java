@@ -17,7 +17,7 @@
 public class MerkleTree extends BinaryTree
 {
 
-    
+
     // Declare class variables here
     private Node merkleRoot = null;
 
@@ -25,7 +25,8 @@ public class MerkleTree extends BinaryTree
     // Instantiate the merkle tree
     public MerkleTree ()
     {
-
+        BinaryTree bt = new BinaryTree();
+        bt.insert("", "");
     }
 
     // hash

@@ -14,25 +14,26 @@
 public class Node
 {
     //declare necessary variables used throughout Node functions
-    private float key;
+    private String key;
     private float value;
-    private Node left;
-    private Node right;
+    private boolean isHashed;
+    private int left;
+    private int right;
 
     //default constructor
     //for instantiation of Node variables
-    public Node()
+    public Node(String keyP, float val)
     {
-        key = 0;
-        value = 0;
-        left = null;
-        right = null;
-
+        key = keyP;
+        value = val;
+        left = -1;
+        right = -1;
+        isHashed = false;
     }
 
     //overload constructor
     //for instantiation of Node variables
-    public Node(float k, float v, Node l, Node r)
+    public Node(String k, float v, int l, int r)
     {
         key = k;
         value = v;
@@ -44,37 +45,37 @@ public class Node
     //returns boolean value that states if the Node is a leaf
     public boolean isLeaf()
     {
-        return (left == null && right == null);
+        return (left == -1 && right == -1);
     }
 
     // --------Left and Right Functions for set and get----
     //return left node value
-    public Node getLeft()
+    public int getLeft()
     {
         return left;
     }
 
     //return right node value
-    public Node getRight()
+    public int getRight()
     {
         return left;
     }
 
     //set the right of the Node to specified value
-    public void setRight(Node x)
+    public void setRight(int x)
     {
         right = x;
     }
 
     //set the left of the Node to specified value
-    public void setLeft(Node x)
+    public void setLeft(int x)
     {
         left = x;
     }
 
     // --------key and value Functions for set and get----
     //returns key node value
-    public float getKey()
+    public String getKey()
     {
         return key;
     }
@@ -86,7 +87,7 @@ public class Node
     }
 
     //set the key of the node to specified value
-    public void setKey(float x)
+    public void setKey(String x)
     {
         key = x;
     }
@@ -96,5 +97,4 @@ public class Node
     {
         value = x;
     }
-
 }

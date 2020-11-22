@@ -31,6 +31,29 @@
 public class Driver {
     public static void main(String args[])
     {
+        
         MerkleTree t = new MerkleTree();
+        String a = new String("Rishabh");
+        String b = new String("Sunhee");
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
+        String i = "-3225964714";
+        System.out.println(i.hashCode());
+
+        MerkleTree correctVersion = new MerkleTree();
+        // fill the correct version
+
+        MerkleTree tempVersion = new MerkleTree();
+
+        // options
+        // 1: Enter super secret lab
+        //      requires all 8 passwords
+        //      Enter key: A
+        //      Enter password: Apassword!@#
+        // 
+        // 2: Enter research lab
+        //      verifies one person's password
     }
 }
+
+// -1418649093-1807315620 = -3225964713
