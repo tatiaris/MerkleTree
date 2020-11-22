@@ -14,20 +14,18 @@
 public class Node
 {
     //declare necessary variables used throughout Node functions
+    private int index;
     private String key;
     private float value;
     private boolean isHashed;
-    private int left;
-    private int right;
 
     //default constructor
     //for instantiation of Node variables
-    public Node(String keyP, float val)
+    public Node(int i, String keyP, float val)
     {
+        index = i;
         key = keyP;
         value = val;
-        left = -1;
-        right = -1;
         isHashed = false;
     }
 
@@ -37,40 +35,25 @@ public class Node
     {
         key = k;
         value = v;
-        left = l;
-        right = r;
-
     }
 
     //returns boolean value that states if the Node is a leaf
     public boolean isLeaf()
     {
-        return (left == -1 && right == -1);
+        return index > 7;
     }
 
     // --------Left and Right Functions for set and get----
     //return left node value
     public int getLeft()
     {
-        return left;
+        return index*2;
     }
 
     //return right node value
     public int getRight()
     {
-        return left;
-    }
-
-    //set the right of the Node to specified value
-    public void setRight(int x)
-    {
-        right = x;
-    }
-
-    //set the left of the Node to specified value
-    public void setLeft(int x)
-    {
-        left = x;
+        return index*2 + 1;
     }
 
     // --------key and value Functions for set and get----
