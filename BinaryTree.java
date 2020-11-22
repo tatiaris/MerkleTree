@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.*;
 /***************************************************************************
 ** File:    BinaryTree.java
 ** Project: CSCE 314 Project 1, Fall 2020
@@ -16,35 +16,41 @@ import java.util.ArrayList;
 public class BinaryTree
 {
     // Declare class variables here
-    public ArrayList <Node> TreeList;
+    //public ArrayList <Node> TreeList2;
+    public Node [] TreeList;
+   // public Node TreeList;
     public Node TreeRoot;
     // BinaryTree (Constructor)
     // Instantiate the merkle tree
     public BinaryTree ()
     {
-        
+        TreeRoot = new Node(0, "", "");
+        TreeList = new Node[1];
+        TreeList[0] =  TreeRoot;
     }
 
     // insert
     // Given a key and it's relevant data, create a node
     // and insert it in the tree
-    void insert(String key, String hashedData)
+    void insert(int pos, String key, String hashedData)
     {
+        Node n = new Node(pos, key, hashedData);
+        TreeList[pos] = n;
 
     }
 
     // delete
     // Given the key to a node, delete the node from the tree
-    void delete(String key)
+   /* void delete(String key)
     {
-
+        int i = java.util.Arrays.asList(TreeList).indexOf(key)
     }
 
     // find
     // Given the key to a node, return the node
     Node find(String key)
     {
-        Node x = new Node("", 0);
+        Node x = new Node();
         return x;
     }
 
@@ -53,29 +59,5 @@ public class BinaryTree
     int getSize()
     {
         return -990;
-    }
+    }*/
 }
-
-// Master Copy
-// rootHash
-// ABSunheeCHash DEFRishabhHash
-// ABHash SunheeCHash DEHash FRishabhHash
-// A B C D E F: Rishabh:rtpw Sunhee:skpw
-
-// Temp Copy
-// rootHash
-// ABSunheeCHash DEFRishabhHash
-// ABHash SunheeCHash DEHash FRishabhHash
-// A B Sunhee C D E  F:input Rishabh:input
-
-// rishabh
-// password123@#$23435
-
-// 0: Node(key, val)
-// 1: Node(key, val)
-// ...
-// 8: Node(A, APW)
-// 9: Node(B, BPW)
-// ...
-// 14: Node(R, RPW)
-// 15: Node(S, SPW)
