@@ -54,6 +54,7 @@ public class Driver {
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
         
+        
         MerkleTree tempVersion = new MerkleTree();
 
         // options
@@ -96,7 +97,7 @@ public class Driver {
 
                 System.out.println("Enter the password for the Username "+ name + ": ");
                 val = scan.nextLine();
-                tempVersion.setUsernamePassword("A", val);
+                tempVersion.setUsernamePassword(name, val);
                 
             }
 
