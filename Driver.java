@@ -25,9 +25,8 @@
 ** we don't need all N individuals at the same time.
 ** 
 ****************************************************************************/
-import java.util.Scanner; 
-import java.util.Map; 
-import java.util.HashMap; 
+import java.util.Scanner;
+import java.util.Map;
 // Driver class
 // Main function which will use the merkle tree to implement the security system
 public class Driver {
@@ -88,17 +87,28 @@ public class Driver {
         tempVersion.addUser("G", 13);
         tempVersion.addUser("H", 14);
 
+
         Map<String, Integer> x = tempVersion.getKeyValMap();
         if(val.equals("1"))
         {
             for (String name : x.keySet())  
             {
+
                 System.out.println("Enter the password for the Username "+ name + ": ");
                 val = scan.nextLine();
                 tempVersion.setUsernamePassword("A", val);
                 
             }
-            System.out.println(tempVersion);
+
+            System.out.println("reach");
+            tempVersion.generateMerkleRoot();
+            
+            if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
+                System.out.println("Passed all cases for verification");
+            else{
+                System.out.println("Did not pass all cases for verification");
+            }
+            //System.out.println(tempVersion);
            // tempVersion.setUsername
         }
         else{
