@@ -16,12 +16,12 @@ public class Node
     //declare necessary variables used throughout Node functions
     private int index;
     private String key;
-    private float value;
+    private String value;
     private boolean isHashed;
 
     //default constructor
     //for instantiation of Node variables
-    public Node(int i, String keyP, float val)
+    public Node(int i, String keyP, String val)
     {
         index = i;
         key = keyP;
@@ -35,11 +35,12 @@ public class Node
         key = keyP;
         value = val;
         isHashed = hashed;
+
     }
 
     //overload constructor
     //for instantiation of Node variables
-    public Node(String k, float v, int l, int r)
+    public Node(String k, String v)
     {
         key = k;
         value = v;
@@ -64,6 +65,11 @@ public class Node
         return index*2 + 1;
     }
 
+    public int getParent()
+    {
+        return (index-1)/2;
+    }
+
     // --------key and value Functions for set and get----
     //returns key node value
     public String getKey()
@@ -72,17 +78,11 @@ public class Node
     }
 
     //returns value node variable
-    public Float getValue()
+    public String getValue()
     {
         return value;
     }
-    
-    //return the parent index
-    public int getParent()
-    {
-        return (index-1)/2;
-    }
-    
+
     //set the key of the node to specified value
     public void setKey(String x)
     {
@@ -90,7 +90,7 @@ public class Node
     }
 
     //set the value of the Node to specified value
-    public void setValue(float x)
+    public void setValue(String x)
     {
         value = x;
     }
