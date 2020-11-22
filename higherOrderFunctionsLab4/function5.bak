@@ -1,5 +1,0 @@
-#lang racket
-(define (indivisible e L)
-  (map (remove 0 ((map ((lambda (x y) (module x y))) L e))))
-  )
-(indivisible 3 (4 5 6 7))
