@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.*;
 /***************************************************************************
 ** File:    BinaryTree.java
 ** Project: CSCE 314 Project 1, Fall 2020
@@ -12,6 +10,8 @@ import java.util.*;
 ** tree's functions and operations.
 **
 ****************************************************************************/
+// all class imports
+import java.util.*;
 
 public class BinaryTree
 {
@@ -25,7 +25,7 @@ public class BinaryTree
     public BinaryTree ()
     {
         TreeRoot = new Node(0, "", "");
-        TreeList = new Node[1];
+        TreeList = new Node[16];
         TreeList[0] =  TreeRoot;
     }
 
@@ -36,17 +36,17 @@ public class BinaryTree
     {
         Node n = new Node(pos, key, hashedData);
         TreeList[pos] = n;
-
     }
 
     public String toString() {
         String data = "";
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < Math.round(Math.pow(2, i)); j++) {
-                
+        for (int i = 1; i < 5; i++) {
+            for (int j = (int)(Math.pow(2, i-1) - 1); j < (int)(Math.pow(2, i) - 1); j++) {
+                data += TreeList[j].toString() + " ";
             }
+            data += "\n";
         }
-        return "";
+        return data;
     }
 
     // delete

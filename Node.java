@@ -106,4 +106,8 @@ public class Node
     public void setHashed(boolean h) {
         isHashed = h;
     }
+
+    public String toString() {
+        return "(" + key + ", " + value + ")";
+    }
 }
