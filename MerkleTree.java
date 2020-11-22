@@ -30,6 +30,17 @@ public class MerkleTree extends BinaryTree
         }
     }
 
+    //function to copy the previous version with the exception of one value 
+    //for verification of single password
+    public void copyWithException(String k)
+    {
+        
+    }
+    public Map<String, Integer> getKeyValMap()
+    {
+        return keyValMap;
+    }
+
     public void setUsernamePassword(String username, String password) {
         String hashedPassword = hash(password);
         insert(keyValMap.get(username), username, hashedPassword);
@@ -63,6 +74,7 @@ public class MerkleTree extends BinaryTree
     public String getMerkleRoot() {
         return merkleRoot;
     }
+
 
     // hash
     // Given data, returns it's hashed string
