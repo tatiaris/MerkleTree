@@ -29,7 +29,7 @@ public class Node
         isHashed = false;
     }
 
-    public Node(int i, String keyP, float val, boolean hashed)
+    public Node(int i, String keyP, String val, boolean hashed)
     {
         index = i;
         key = keyP;
