@@ -31,18 +31,18 @@
 public class Driver {
     public static void main(String args[])
     {
-        
-        MerkleTree t = new MerkleTree();
-        String a = new String("Rishabh");
-        String b = new String("Sunhee");
-        System.out.println(a.hashCode());
-        System.out.println(b.hashCode());
-        String i = "-3225964714";
-        System.out.println(i.hashCode());
-
         MerkleTree correctVersion = new MerkleTree();
-        // fill the correct version
+        correctVersion.addUser("A", 7);
+        // ...
+        correctVersion.addUser("S", 15);
 
+        correctVersion.setUsernamePassword("A", "passwordA");
+        // ...
+        correctVersion.setUsernamePassword("S", "passwordS");
+
+        correctVersion.generateMerkleRoot();
+        String correctMerkleRoot = correctVersion.getMerkleRoot();
+        
         MerkleTree tempVersion = new MerkleTree();
 
         // options

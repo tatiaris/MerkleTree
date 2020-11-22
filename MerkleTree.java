@@ -13,27 +13,50 @@
 ****************************************************************************/
 
 // Import all dependencies for inputs and hashing here.
+import java.util.*;
 
-public class MerkleTree extends BinaryTree
+public class MerkleTree
 {
-
-
-    // Declare class variables here
-    private Node merkleRoot = null;
+    private Map<String, Integer> keyValMap = new HashMap<String, Integer>();
+    private BinaryTree bt = new BinaryTree();
+    private String merkleRoot;
 
     // MerkleTree (Constructor)
     // Instantiate the merkle tree
     public MerkleTree ()
     {
-        BinaryTree bt = new BinaryTree();
-        bt.insert("", "");
+        merkleRoot = "";
+        for (int i = 0; i < 7; i++) {
+            bt.insert(i, "", "");
+        }
+    }
+
+    public void setUsernamePassword(String username, String password) {
+        String hashedPassword = hash(password);
+        bt.insert(keyValMap.get(username), username, hashedPassword);
+    }
+
+    public void addUser(String username, int index) {
+        keyValMap.put(username, index);
+    }
+
+    public int getUserIndex(String username) {
+        return keyValMap.get(username);
+    }
+
+    public void generateMerkleRoot() {
+
+    }
+
+    public String getMerkleRoot() {
+        return merkleRoot;
     }
 
     // hash
     // Given data, returns it's hashed string
     String hash(String data)
     {
-        return "";
+        return "" + data.hashCode();
     }
 
     // combine
@@ -42,4 +65,8 @@ public class MerkleTree extends BinaryTree
     {
         return "";
     }
+
+    public int right_child(int i) {return 2*i + 2;}
+    public int left_child(int i) {return 2*i + 1;}
+    public int parent(int i) {return (i-1)/2;}
 }
