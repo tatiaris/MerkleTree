@@ -9,13 +9,15 @@
 ** This file contains the class MerkleTree, which defines all of the merkle
 ** tree's functions and operations, implementing all tree functionalities
 ** along with hashing capabilities to generate the secure structure.
-**
+** 
 ****************************************************************************/
 
 // Import all dependencies for inputs and hashing here.
 
 public class MerkleTree extends BinaryTree
 {
+
+    
     // Declare class variables here
     private Node merkleRoot = null;
 
