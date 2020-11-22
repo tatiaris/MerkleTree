@@ -29,6 +29,14 @@ public class Node
         isHashed = false;
     }
 
+    public Node(int i, String keyP, float val, boolean hashed)
+    {
+        index = i;
+        key = keyP;
+        value = val;
+        isHashed = hashed;
+    }
+
     //overload constructor
     //for instantiation of Node variables
     public Node(String k, float v, int l, int r)
@@ -79,5 +87,13 @@ public class Node
     public void setValue(float x)
     {
         value = x;
+    }
+
+    public boolean isHashed() {
+        return isHashed;
+    }
+
+    public void setHashed(boolean h) {
+        isHashed = h;
     }
 }
