@@ -109,8 +109,9 @@ public class Driver {
             else{
                 System.out.println("Did not pass all cases for verification");
             }
-            //System.out.println(tempVersion);
-           // tempVersion.setUsername
+            System.out.println(correctVersion.toString());
+            System.out.println(tempVersion.toString());
+            // tempVersion.setUsername
         }
         else{
             System.out.println("Enter the the Username to verify password for:");
