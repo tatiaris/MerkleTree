@@ -76,7 +76,13 @@ public class Node
     {
         return value;
     }
-
+    
+    //return the parent index
+    public int getParent()
+    {
+        return (index-1)/2;
+    }
+    
     //set the key of the node to specified value
     public void setKey(String x)
     {
