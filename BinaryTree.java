@@ -55,7 +55,6 @@ public class BinaryTree
     {
         int i = java.util.Arrays.asList(TreeList).indexOf(key)
     }
-
     // find
     // Given the key to a node, return the node
     Node find(String key)
@@ -63,7 +62,6 @@ public class BinaryTree
         Node x = new Node();
         return x;
     }
-
     // getSize
     // Returns the size of the tree
     int getSize()
