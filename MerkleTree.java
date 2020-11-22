@@ -57,6 +57,7 @@ public class MerkleTree extends BinaryTree
 
     public void generateMerkleRoot() {
         generateChildrenHash(0);
+        merkleRoot = TreeList[0].getValue();
     }
 
     public void generateChildrenHash(int cur) {

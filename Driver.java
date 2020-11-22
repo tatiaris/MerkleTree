@@ -42,7 +42,6 @@ public class Driver {
         correctVersion.addUser("F", 12);
         correctVersion.addUser("G", 13);
         correctVersion.addUser("H", 14);
-        correctVersion.addUser("K", 15);
 
         correctVersion.setUsernamePassword("A", "passwordA");
         correctVersion.setUsernamePassword("B", "passwordB");
@@ -52,7 +51,6 @@ public class Driver {
         correctVersion.setUsernamePassword("F", "passwordF");
         correctVersion.setUsernamePassword("G", "passwordG");
         correctVersion.setUsernamePassword("H", "passwordH");
-        correctVersion.setUsernamePassword("K", "passwordS");
 
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
@@ -89,7 +87,6 @@ public class Driver {
         tempVersion.addUser("F", 12);
         tempVersion.addUser("G", 13);
         tempVersion.addUser("H", 14);
-        tempVersion.addUser("K", 15);
 
         Map<String, Integer> x = tempVersion.getKeyValMap();
         if(val.equals("1"))

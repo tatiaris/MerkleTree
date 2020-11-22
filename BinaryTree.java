@@ -25,7 +25,7 @@ public class BinaryTree
     public BinaryTree ()
     {
         TreeRoot = new Node(0, "", "");
-        TreeList = new Node[16];
+        TreeList = new Node[15];
         TreeList[0] =  TreeRoot;
     }
 
