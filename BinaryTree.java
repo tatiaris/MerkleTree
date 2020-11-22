@@ -1,97 +1,71 @@
 /***************************************************************************
-** File:    MerkleTree.java
+** File:    BinaryTree.java
 ** Project: CSCE 314 Project 1, Fall 2020
 ** Author:  Rishabh Tatia, Sunhee Kim
 ** Date:    11/07/20
 ** Section: 501
 ** E-mail:  tatiaris@tamu.edu, sunheek@tamu.edu
 **
-** This file contains the class MerkleTree, which defines all of the merkle
-** tree's functions and operations, implementing all tree functionalities
-** along with hashing capabilities to generate the secure structure.
-** 
+** This file contains the class BinaryTree, which defines all of the binary
+** tree's functions and operations.
+**
 ****************************************************************************/
-
-// Import all dependencies for inputs and hashing here.
+// all class imports
 import java.util.*;
 
-public class MerkleTree extends BinaryTree
+public class BinaryTree
 {
-    private Map<String, Integer> keyValMap = new HashMap<String, Integer>();
-    private String merkleRoot;
-
-    // MerkleTree (Constructor)
+    // Declare class variables here
+    //public ArrayList <Node> TreeList2;
+    public Node [] TreeList;
+   // public Node TreeList;
+    public Node TreeRoot;
+    // BinaryTree (Constructor)
     // Instantiate the merkle tree
-    public MerkleTree ()
+    public BinaryTree ()
     {
-        merkleRoot = "";
-        for (int i = 0; i < 7; i++) {
-            insert(i, "", "");
+        TreeRoot = new Node(0, "", "");
+        TreeList = new Node[15];
+        TreeList[0] =  TreeRoot;
+    }
+
+    // insert
+    // Given a key and it's relevant data, create a node
+    // and insert it in the tree
+    void insert(int pos, String key, String hashedData)
+    {
+        Node n = new Node(pos, key, hashedData);
+        TreeList[pos] = n;
+    }
+
+    public String toString() {
+        String data = "";
+        for (int i = 1; i < 5; i++) {
+            for (int j = (int)(Math.pow(2, i-1) - 1); j < (int)(Math.pow(2, i) - 1); j++) {
+                data += TreeList[j].toString() + " ";
+            }
+            data += "\n";
         }
+        return data;
     }
 
-    //function to copy the previous version with the exception of one value 
-    //for verification of single password
-    public void copyWithException(String k)
+    // delete
+    // Given the key to a node, delete the node from the tree
+   /* void delete(String key)
     {
-        
+        int i = java.util.Arrays.asList(TreeList).indexOf(key)
     }
-    public Map<String, Integer> getKeyValMap()
+    // find
+    // Given the key to a node, return the node
+    Node find(String key)
     {
-        return keyValMap;
+        Node x = new Node();
+        return x;
     }
-
-    public void setUsernamePassword(String username, String password) {
-        String hashedPassword = hash(password);
-        insert(keyValMap.get(username), username, hashedPassword);
-        TreeList[keyValMap.get(username)].setHashed(true);
-    }
-
-    public void addUser(String username, int index) {
-        keyValMap.put(username, index);
-    }
-
-    public int getUserIndex(String username) {
-        return keyValMap.get(username);
-    }
-
-    public void generateMerkleRoot() {
-        System.out.println("generateMerkleRoot");
-        generateChildrenHash(0);
-        System.out.println("generateMerkleRoot2");
-        merkleRoot = TreeList[0].getValue();
-        System.out.println("generateMerkleRoot3");
-    }
-
-    public void generateChildrenHash(int cur) {
-        System.out.println(cur);
-        Node left = TreeList[TreeList[cur].getLeft()];
-        Node right = TreeList[TreeList[cur].getRight()];
-        if (!left.isHashed() || !right.isHashed()) {
-            generateChildrenHash(left.getIndex());
-            generateChildrenHash(right.getIndex());
-        }
-        TreeList[cur].setKey(left.getKey() + right.getKey() + "Hashed");
-        TreeList[cur].setValue(left.getValue() + right.getValue());
-        TreeList[cur].setHashed(true);
-    }
-
-    public String getMerkleRoot() {
-        return merkleRoot;
-    }
-
-
-    // hash
-    // Given data, returns it's hashed string
-    String hash(String data)
+    // getSize
+    // Returns the size of the tree
+    int getSize()
     {
-        return "" + data.hashCode();
-    }
-
-    // combine
-    // Given 2 hashes, combines them and returns a new hash
-    String combine(String hash1, String hash2)
-    {
-        return "";
-    }
+        return -990;
+    }*/
 }
