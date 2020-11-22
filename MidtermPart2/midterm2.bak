@@ -1,0 +1,18 @@
+#lang racket
+; student: Sunhee Kim
+; Midterm day 2
+; Question 4
+
+(define (cross A B)
+  
+  (cond ((null? A) '())
+        ((null? B) '())
+        (else (cons (list (car A) (car B))(cross A (cdr B))))
+        
+  )
+
+ )
+
+
+
+(display (cross '(1 2 3) '(a b)))

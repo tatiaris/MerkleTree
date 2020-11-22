@@ -1,0 +1,22 @@
+#lang racket
+; student: Sunhee Kim
+; Midterm day 2
+; Question 1
+(define (remainder x y)
+  (cond ((integer? (/ x y)) 0)
+        ((< (/ x y) 1) (* x y))
+        ((> (/ x y) 1) (remainder  (/ x y) y))
+    
+    )
+
+  )
+
+(display (remainder 50 10))
+(newline)
+(display (remainder 18 5))
+
+(newline)
+(display (remainder 10 3))
+
+(newline)
+(display (remainder 10 3))

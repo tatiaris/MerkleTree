@@ -1,0 +1,21 @@
+#lang racket
+
+;==================================================================
+; File: SchemeFlipped.scm
+; Written by: Sunhee Kim and Rishabh Tatia
+; Date: 9/18/20
+; TAMU email: sunheek@tamu.edu tatiaris@tamu.edu
+; Class: CSCE 314 (section 502)
+; Description: This is the first program for lab 4
+;==================================================================
+
+;main function for testing functions
+(define (main)
+
+	;function calls go here
+)
+
+;call to main function
+(main) 
+
+(exit)

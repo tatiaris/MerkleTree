@@ -1,0 +1,5 @@
+; Sunhee Kim
+; midterm day 2
+; problem 5
+
+REgexp: rap them|tapeth|apth|wrap/try|sap tray|87ap9th|apothecary
