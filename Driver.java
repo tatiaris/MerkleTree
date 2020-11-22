@@ -25,7 +25,9 @@
 ** we don't need all N individuals at the same time.
 ** 
 ****************************************************************************/
-
+import java.util.Scanner; 
+import java.util.Map; 
+import java.util.HashMap; 
 // Driver class
 // Main function which will use the merkle tree to implement the security system
 public class Driver {
@@ -33,12 +35,24 @@ public class Driver {
     {
         MerkleTree correctVersion = new MerkleTree();
         correctVersion.addUser("A", 7);
-        // ...
-        correctVersion.addUser("S", 15);
+        correctVersion.addUser("B", 8);
+        correctVersion.addUser("C", 9);
+        correctVersion.addUser("D", 10);
+        correctVersion.addUser("E", 11);
+        correctVersion.addUser("F", 12);
+        correctVersion.addUser("G", 13);
+        correctVersion.addUser("H", 14);
+        correctVersion.addUser("K", 15);
 
         correctVersion.setUsernamePassword("A", "passwordA");
-        // ...
-        correctVersion.setUsernamePassword("S", "passwordS");
+        correctVersion.setUsernamePassword("B", "passwordB");
+        correctVersion.setUsernamePassword("C", "passwordC");
+        correctVersion.setUsernamePassword("D", "passwordD");
+        correctVersion.setUsernamePassword("E", "passwordE");
+        correctVersion.setUsernamePassword("F", "passwordF");
+        correctVersion.setUsernamePassword("G", "passwordG");
+        correctVersion.setUsernamePassword("H", "passwordH");
+        correctVersion.setUsernamePassword("K", "passwordS");
 
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
@@ -53,6 +67,53 @@ public class Driver {
         // 
         // 2: Enter research lab
         //      verifies one person's password
+        Scanner scan = new Scanner(System.in);
+        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Enter Option as Integer (1 or 2)");
+        System.out.println("\tOption 1 (Requires All 8 Password for Verification)");
+        System.out.println("\tOption 2 (Requires Single Password for Verification)");
+        String val = scan.nextLine();
+        while(!val.equals("1") && !val.equals("2"))
+        {
+            System.out.println("ERROR!! INVALID OPTION. Enter Option as Integer (1 or 2)");
+            System.out.println("\tOption 1 (Requires All 8 Password for Verification)");
+            System.out.println("\tOption 2 (Requires Single Password for Verification)");
+            val = scan.nextLine();
+        }
+
+        tempVersion.addUser("A", 7);
+        tempVersion.addUser("B", 8);
+        tempVersion.addUser("C", 9);
+        tempVersion.addUser("D", 10);
+        tempVersion.addUser("E", 11);
+        tempVersion.addUser("F", 12);
+        tempVersion.addUser("G", 13);
+        tempVersion.addUser("H", 14);
+        tempVersion.addUser("K", 15);
+
+        Map<String, Integer> x = tempVersion.getKeyValMap();
+        if(val.equals("1"))
+        {
+            for (String name : x.keySet())  
+            {
+                System.out.println("Enter the password for the Username "+ name + ": ");
+                val = scan.nextLine();
+                tempVersion.setUsernamePassword("A", val);
+                
+            }
+            System.out.println(tempVersion);
+           // tempVersion.setUsername
+        }
+        else{
+            System.out.println("Enter the the Username to verify password for:");
+            String keyVal = scan.nextLine();
+            System.out.println("Enter the password:");
+            val = scan.nextLine();
+
+            //need to copy all values of the the previous corrected version with the exception of the single key specified
+        }
+        
+
     }
 }
 
