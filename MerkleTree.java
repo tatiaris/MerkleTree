@@ -56,13 +56,18 @@ public class MerkleTree extends BinaryTree
     }
 
     public void generateMerkleRoot() {
+        System.out.println("generateMerkleRoot");
         generateChildrenHash(0);
+        System.out.println("generateMerkleRoot2");
         merkleRoot = TreeList[0].getValue();
+        System.out.println("generateMerkleRoot3");
     }
 
     public void generateChildrenHash(int cur) {
-        Node left = TreeList[TreeList[cur].getLeft()];
-        Node right = TreeList[TreeList[cur].getRight()];
+        System.out.println(cur);
+        Node left = TreeList[cur*2+1];
+        System.out.println("here");
+        Node right = TreeList[cur*2+1];
         if (!left.isHashed() || !right.isHashed()) {
             generateChildrenHash(left.getIndex());
             generateChildrenHash(right.getIndex());
