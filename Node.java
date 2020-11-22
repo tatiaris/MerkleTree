@@ -56,13 +56,13 @@ public class Node
     //return left node value
     public int getLeft()
     {
-        return index*2;
+        return index*2 + 1;
     }
 
     //return right node value
     public int getRight()
     {
-        return index*2 + 1;
+        return index*2 + 2;
     }
 
     public int getParent()
@@ -93,6 +93,10 @@ public class Node
     public void setValue(String x)
     {
         value = x;
+    }
+
+    public int getIndex() {
+        return index;
     }
 
     public boolean isHashed() {

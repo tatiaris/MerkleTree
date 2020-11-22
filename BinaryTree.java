@@ -39,6 +39,16 @@ public class BinaryTree
 
     }
 
+    public String toString() {
+        String data = "";
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < Math.round(Math.pow(2, i)); j++) {
+                
+            }
+        }
+        return "";
+    }
+
     // delete
     // Given the key to a node, delete the node from the tree
    /* void delete(String key)

@@ -15,10 +15,9 @@
 // Import all dependencies for inputs and hashing here.
 import java.util.*;
 
-public class MerkleTree
+public class MerkleTree extends BinaryTree
 {
     private Map<String, Integer> keyValMap = new HashMap<String, Integer>();
-    private BinaryTree bt = new BinaryTree();
     private String merkleRoot;
 
     // MerkleTree (Constructor)
@@ -27,13 +26,14 @@ public class MerkleTree
     {
         merkleRoot = "";
         for (int i = 0; i < 7; i++) {
-            bt.insert(i, "", "");
+            insert(i, "", "");
         }
     }
 
     public void setUsernamePassword(String username, String password) {
         String hashedPassword = hash(password);
-        bt.insert(keyValMap.get(username), username, hashedPassword);
+        insert(keyValMap.get(username), username, hashedPassword);
+        TreeList[keyValMap.get(username)].setHashed(true);
     }
 
     public void addUser(String username, int index) {
@@ -45,7 +45,19 @@ public class MerkleTree
     }
 
     public void generateMerkleRoot() {
+        generateChildrenHash(0);
+    }
 
+    public void generateChildrenHash(int cur) {
+        Node left = TreeList[TreeList[cur].getLeft()];
+        Node right = TreeList[TreeList[cur].getRight()];
+        if (!left.isHashed() || !right.isHashed()) {
+            generateChildrenHash(left.getIndex());
+            generateChildrenHash(right.getIndex());
+        }
+        TreeList[cur].setKey(left.getKey() + right.getKey() + "Hashed");
+        TreeList[cur].setValue(left.getValue() + right.getValue());
+        TreeList[cur].setHashed(true);
     }
 
     public String getMerkleRoot() {
@@ -65,8 +77,4 @@ public class MerkleTree
     {
         return "";
     }
-
-    public int right_child(int i) {return 2*i + 2;}
-    public int left_child(int i) {return 2*i + 1;}
-    public int parent(int i) {return (i-1)/2;}
 }
