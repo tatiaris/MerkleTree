@@ -11,6 +11,7 @@
 ** functionalities along with hashing capabilities to generate the secure structure.
 **
 ****************************************************************************/
+
 public class Node
 {
     //declare necessary variables used throughout Node functions
@@ -29,6 +30,7 @@ public class Node
         isHashed = false;
     }
 
+    // constructor with hashed modifyable
     public Node(int i, String keyP, String val, boolean hashed)
     {
         index = i;
@@ -65,48 +67,53 @@ public class Node
         return index*2 + 2;
     }
 
+    // returns the index of the parent node
     public int getParent()
     {
         return (index-1)/2;
     }
 
     // --------key and value Functions for set and get----
-    //returns key node value
+    // returns key node value
     public String getKey()
     {
         return key;
     }
 
-    //returns value node variable
+    // returns value node variable
     public String getValue()
     {
         return value;
     }
 
-    //set the key of the node to specified value
+    // set the key of the node to specified value
     public void setKey(String x)
     {
         key = x;
     }
 
-    //set the value of the Node to specified value
+    // set the value of the Node to specified value
     public void setValue(String x)
     {
         value = x;
     }
 
+    // returns the position of the node in the tree
     public int getIndex() {
         return index;
     }
 
+    // returns whether the value of node is hashed or not
     public boolean isHashed() {
         return isHashed;
     }
 
+    // setter for variable isHashed
     public void setHashed(boolean h) {
         isHashed = h;
     }
 
+    // toString function for the class
     public String toString() {
         return "(" + key + ", " + value + ")";
     }

@@ -10,6 +10,7 @@
 ** tree's functions and operations.
 **
 ****************************************************************************/
+
 // all class imports
 import java.util.*;
 
@@ -18,7 +19,7 @@ public class BinaryTree
     // Declare class variables here
     //public ArrayList <Node> TreeList2;
     public Node [] TreeList;
-   // public Node TreeList;
+    // public Node TreeList;
     public Node TreeRoot;
     // BinaryTree (Constructor)
     // Instantiate the merkle tree
@@ -38,6 +39,7 @@ public class BinaryTree
         TreeList[pos] = n;
     }
 
+    // toString function for the class
     public String toString() {
         String data = "";
         for (int i = 1; i < 5; i++) {

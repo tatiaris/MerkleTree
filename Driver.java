@@ -32,6 +32,7 @@ import java.util.Map;
 public class Driver {
     public static void main(String args[])
     {
+        // adding all CORRECT users in their respective position with their respective passwords
         MerkleTree correctVersion = new MerkleTree();
         correctVersion.addUser("A", 7);
         correctVersion.addUser("B", 8);
@@ -51,6 +52,7 @@ public class Driver {
         correctVersion.setUsernamePassword("G", "passwordG");
         correctVersion.setUsernamePassword("H", "passwordH");
 
+        // generating the merkle root of the correct people
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
         
@@ -79,6 +81,7 @@ public class Driver {
             val = scan.nextLine();
         }
 
+        // adding temporary users to test the correct version
         tempVersion.addUser("A", 7);
         tempVersion.addUser("B", 8);
         tempVersion.addUser("C", 9);
@@ -89,6 +92,7 @@ public class Driver {
         tempVersion.addUser("H", 14);
 
 
+        // get inputs from user to create a NEW merkle tree
         Map<String, Integer> x = tempVersion.getKeyValMap();
         if(val.equals("1"))
         {
@@ -104,6 +108,7 @@ public class Driver {
             System.out.println("reach");
             tempVersion.generateMerkleRoot();
             
+            // COMPARE the original (correct) merkle root with the NEW one to check if all users and password were right
             if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
                 System.out.println("Passed all cases for verification");
             else{

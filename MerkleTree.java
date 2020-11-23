@@ -36,30 +36,43 @@ public class MerkleTree extends BinaryTree
     {
         
     }
+
+    // getKeyValMap
+    // returns the dictionary that contains usernames and their indexes
     public Map<String, Integer> getKeyValMap()
     {
         return keyValMap;
     }
 
+    // setUsernamePassword
+    // given username and password, inserts the info into the binary tree
     public void setUsernamePassword(String username, String password) {
         String hashedPassword = hash(password);
         insert(keyValMap.get(username), username, hashedPassword);
         TreeList[keyValMap.get(username)].setHashed(true);
     }
 
+    // addUser
+    // given username and index, adds a user to the database
     public void addUser(String username, int index) {
         keyValMap.put(username, index);
     }
 
+    // getUserIndex
+    // returns the position of username
     public int getUserIndex(String username) {
         return keyValMap.get(username);
     }
 
+    // generateMerkleRooot
+    // bootstrap function for generating the root hash
     public void generateMerkleRoot() {
         generateChildrenHash(0);
         merkleRoot = TreeList[0].getValue();
     }
 
+    // generateChildrenHash
+    // recursive function that fills in the merkle tree bottom up
     public void generateChildrenHash(int cur) {
         Node left = TreeList[cur*2+1];
         Node right = TreeList[cur*2+2];
@@ -72,6 +85,8 @@ public class MerkleTree extends BinaryTree
         TreeList[cur].setHashed(true);
     }
 
+    // getMerkleRooot
+    // returns the stored merkleRoot
     public String getMerkleRoot() {
         return merkleRoot;
     }
