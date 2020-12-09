@@ -100,21 +100,25 @@ public class Node
     }
 
     //returns index of the node
-    public int getIndex() {
+    public int getIndex()
+    {
         return index;
     }
 
     //returns whether or not the node is hashed as a boolean
-    public boolean isHashed() {
+    public boolean isHashed()
+    {
         return isHashed;
     }
 
     //sets the isHashed boolean to parameter
-    public void setHashed(boolean h) {
+    public void setHashed(boolean h)
+    {
         isHashed = h;
     }
 
-    public String toString() {
+    public String toString()
+    {
         return "(" + key + ", " + value + ")";
     }
 }

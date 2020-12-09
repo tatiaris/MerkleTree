@@ -13,7 +13,7 @@
 // all class imports
 import java.util.*;
 
-public class BinaryTree
+public abstract class BinaryTree
 {
     //public ArrayList <Node> TreeList2;
     public Node [] TreeList;
@@ -36,8 +36,13 @@ public class BinaryTree
         TreeList[pos] = n;
     }
 
+    // add
+    // given username and index, adds a user to the database
+    public abstract void add(String username, int index);
+
     //displays all values belonging to the TreeList variable
-    public String toString() {
+    public String toString()
+    {
         String data = "";
         for (int i = 1; i < 5; i++) {
             for (int j = (int)(Math.pow(2, i-1) - 1); j < (int)(Math.pow(2, i) - 1); j++) {

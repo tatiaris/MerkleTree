@@ -29,19 +29,20 @@ import java.util.Scanner;
 import java.util.Map;
 // Driver class
 // Main function which will use the merkle tree to implement the security system
-public class Driver {
+public class Driver
+{
     public static void main(String args[])
     {
         //generates a correct Version of the merkle tree for comparison in test cases
         MerkleTree correctVersion = new MerkleTree();
-        correctVersion.addUser("A", 7);
-        correctVersion.addUser("B", 8);
-        correctVersion.addUser("C", 9);
-        correctVersion.addUser("D", 10);
-        correctVersion.addUser("E", 11);
-        correctVersion.addUser("F", 12);
-        correctVersion.addUser("G", 13);
-        correctVersion.addUser("H", 14);
+        correctVersion.add("A", 7);
+        correctVersion.add("B", 8);
+        correctVersion.add("C", 9);
+        correctVersion.add("D", 10);
+        correctVersion.add("E", 11);
+        correctVersion.add("F", 12);
+        correctVersion.add("G", 13);
+        correctVersion.add("H", 14);
 
         correctVersion.setUsernamePassword("A", "passwordA");
         correctVersion.setUsernamePassword("B", "passwordB");
@@ -55,8 +56,6 @@ public class Driver {
         // generates and sets the correct merkle root variable 
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
-        
-        
         
 
         // options
@@ -87,14 +86,14 @@ public class Driver {
 
         //generates a temporary Merkle Tree for test cases to be edited and compared to with correct version
         MerkleTree tempVersion = new MerkleTree();
-        tempVersion.addUser("A", 7);
-        tempVersion.addUser("B", 8);
-        tempVersion.addUser("C", 9);
-        tempVersion.addUser("D", 10);
-        tempVersion.addUser("E", 11);
-        tempVersion.addUser("F", 12);
-        tempVersion.addUser("G", 13);
-        tempVersion.addUser("H", 14);
+        tempVersion.add("A", 7);
+        tempVersion.add("B", 8);
+        tempVersion.add("C", 9);
+        tempVersion.add("D", 10);
+        tempVersion.add("E", 11);
+        tempVersion.add("F", 12);
+        tempVersion.add("G", 13);
+        tempVersion.add("H", 14);
 
         //receives the key val map to prompt user for all usernames given the first option is required
         Map<String, Integer> x = tempVersion.getKeyValMap();
@@ -116,21 +115,25 @@ public class Driver {
             
             //compares and displays if tree is equal based on merkle root of the temp and correct versions
             if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
+            {
                 System.out.println("Passed all cases for verification");
-            else{
+            }
+            else
+            {
                 System.out.println("Did not pass all cases for verification");
             }
-            System.out.println(correctVersion.toString());
-            System.out.println(tempVersion.toString());
             // tempVersion.setUsername
         }
-        else{ // if option 2 proceed
+        else
+        { // if option 2 proceed
 
             // prompts user to enter password
             System.out.println("Enter the the Username to verify password for:");
 
             // receives the username and val
             String keyVal = scan.nextLine();
+
+            System.out.println("Enter the the Password for " + keyVal + ": ");
             val = scan.nextLine();
 
             //need to copy all values of the the previous corrected version with the exception of the single key specified
@@ -141,8 +144,11 @@ public class Driver {
             
             //compares and displays if tree is equal based on merkle root of the temp and correct versions
             if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
+            {
                 System.out.println("Passed all cases for verification");
-            else{
+            }
+            else
+            {
                 System.out.println("Did not pass all cases for verification");
             }
         }
