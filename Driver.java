@@ -32,7 +32,7 @@ import java.util.Map;
 public class Driver {
     public static void main(String args[])
     {
-        // adding all CORRECT users in their respective position with their respective passwords
+        //generates a correct Version of the merkle tree for comparison in test cases
         MerkleTree correctVersion = new MerkleTree();
         correctVersion.addUser("A", 7);
         correctVersion.addUser("B", 8);
@@ -52,12 +52,12 @@ public class Driver {
         correctVersion.setUsernamePassword("G", "passwordG");
         correctVersion.setUsernamePassword("H", "passwordH");
 
-        // generating the merkle root of the correct people
+        // generates and sets the correct merkle root variable 
         correctVersion.generateMerkleRoot();
         String correctMerkleRoot = correctVersion.getMerkleRoot();
         
         
-        MerkleTree tempVersion = new MerkleTree();
+        
 
         // options
         // 1: Enter super secret lab
@@ -67,12 +67,16 @@ public class Driver {
         // 
         // 2: Enter research lab
         //      verifies one person's password
+
+        //displays menu of options for verification of merkle tree and prompts user 
         Scanner scan = new Scanner(System.in);
         System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("Enter Option as Integer (1 or 2)");
         System.out.println("\tOption 1 (Requires All 8 Password for Verification)");
         System.out.println("\tOption 2 (Requires Single Password for Verification)");
         String val = scan.nextLine();
+
+        //for the instance of invalid entry into menu
         while(!val.equals("1") && !val.equals("2"))
         {
             System.out.println("ERROR!! INVALID OPTION. Enter Option as Integer (1 or 2)");
@@ -81,7 +85,8 @@ public class Driver {
             val = scan.nextLine();
         }
 
-        // adding temporary users to test the correct version
+        //generates a temporary Merkle Tree for test cases to be edited and compared to with correct version
+        MerkleTree tempVersion = new MerkleTree();
         tempVersion.addUser("A", 7);
         tempVersion.addUser("B", 8);
         tempVersion.addUser("C", 9);
@@ -91,24 +96,25 @@ public class Driver {
         tempVersion.addUser("G", 13);
         tempVersion.addUser("H", 14);
 
-
-        // get inputs from user to create a NEW merkle tree
+        //receives the key val map to prompt user for all usernames given the first option is required
         Map<String, Integer> x = tempVersion.getKeyValMap();
+
+        // if option 1 selected proceed
         if(val.equals("1"))
         {
+
             for (String name : x.keySet())  
             {
-
+                // prompts for password based on username using the keyval map and sets tempVersion Tree with password
                 System.out.println("Enter the password for the Username "+ name + ": ");
                 val = scan.nextLine();
                 tempVersion.setUsernamePassword(name, val);
-                
             }
 
-            System.out.println("reach");
+            // calls generate Merkle Root to see if the verification
             tempVersion.generateMerkleRoot();
             
-            // COMPARE the original (correct) merkle root with the NEW one to check if all users and password were right
+            //compares and displays if tree is equal based on merkle root of the temp and correct versions
             if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
                 System.out.println("Passed all cases for verification");
             else{
@@ -118,17 +124,31 @@ public class Driver {
             System.out.println(tempVersion.toString());
             // tempVersion.setUsername
         }
-        else{
+        else{ // if option 2 proceed
+
+            // prompts user to enter password
             System.out.println("Enter the the Username to verify password for:");
+
+            // receives the username and val
             String keyVal = scan.nextLine();
-            System.out.println("Enter the password:");
             val = scan.nextLine();
 
             //need to copy all values of the the previous corrected version with the exception of the single key specified
+            tempVersion.copyWithException(keyVal, val, correctVersion);
+
+            // calls generate Merkle Root to see if the verification
+            tempVersion.generateMerkleRoot();
+            
+            //compares and displays if tree is equal based on merkle root of the temp and correct versions
+            if(tempVersion.getMerkleRoot().equals(correctMerkleRoot))
+                System.out.println("Passed all cases for verification");
+            else{
+                System.out.println("Did not pass all cases for verification");
+            }
         }
         
-
-    }
+        //closes the scanner
+        scan.close();
+    } 
 }
 
-// -1418649093-1807315620 = -3225964713
