@@ -30,11 +30,20 @@ public class MerkleTree extends BinaryTree
         }
     }
 
-    //function to copy the previous version with the exception of one value 
-    //for verification of single password
-    public void copyWithException(String k)
+    // function to copy the previous version with the exception of one value 
+    // for verification of single password
+    public void copyWithException(String user, String pw, MerkleTree origTree)
     {
-        
+      Map<String, Integer> userMap = origTree.getKeyValMap();
+      for (String key : userMap.keySet()) {
+        Integer userIndex = userMap.get(key);
+        if (key.equals(user)) {
+          setUsernamePassword(key, pw);
+        } else {
+          insert(keyValMap.get(key), key, origTree.TreeList[userIndex].getValue());
+          TreeList[keyValMap.get(key)].setHashed(true);
+        }
+      }
     }
 
     // getKeyValMap
